@@ -50,11 +50,9 @@ function addCommas(num) {
 </style>
 
 <div class="rating-container">
-    <span class="total-ratings">
-        { total_ratings &&
-            ({total_ratings})
-        }
-    </span>
+    { total_ratings &&
+        <span class="total-ratings">({ total_ratings })</span>
+    }
     <div class="rating-stars">
         { [...Array(enabled_stars())].map(() => {
             if (enabled_src) return <img src={enabled_src}>
