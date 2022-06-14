@@ -1,0 +1,69 @@
+---
+const { total, max, rate, enabled_src, disabled_src } = Astro.props;
+const default_enabled_src = '/imgs/star.webp';
+const default_disabled_src = '/imgs/star_disabled.webp';
+
+const total_ratings = addCommas(total)
+
+const max_stars = () => {
+    if (typeof max == 'undefined') return 5
+    if (typeof max == 'string') return parseInt(max)
+    if (typeof max == 'number') return max
+};
+
+const enabled_stars = () => {
+    if (typeof rate == 'undefined') return 0
+    if (typeof rate == 'string') return parseInt(rate)
+    if (typeof rate == 'number') return rate
+};
+
+const disabled_stars = max_stars() - enabled_stars();
+
+//Utility
+function addCommas(num) {
+    if (typeof num == 'number') return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    if (typeof num == 'string') return num.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    return false
+}
+---
+
+<style lang="scss">
+    .rating-container {
+        display: flex;
+        align-items: flex-end;
+        gap: 0.25rem;
+
+        .total-ratings {
+            font-size: 0.75rem;
+            color: #ccc;
+        }
+        .rating-stars {
+            display: flex;
+            align-items: flex-end;
+            
+            img {
+                height: 14px;
+                width: auto;
+            }
+        }
+    }
+</style>
+
+<div class="rating-container">
+    <span class="total-ratings">
+        ({total_ratings})
+    </span>
+    <div class="rating-stars">
+        { [...Array(enabled_stars())].map(() => {
+            if (enabled_src) return <img src={enabled_src}>
+            else return <img src={default_enabled_src}>
+        })}
+
+        {   disabled_stars != 0 &&
+            [...Array(disabled_stars)].map(() => {
+                if (disabled_src) return <img src={disabled_src}>
+                else return <img src={default_disabled_src}>
+            })
+        }
+    </div>
+</div>
