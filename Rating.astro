@@ -51,7 +51,9 @@ function addCommas(num) {
 
 <div class="rating-container">
     <span class="total-ratings">
-        ({total_ratings})
+        { total_ratings &&
+            ({total_ratings})
+        }
     </span>
     <div class="rating-stars">
         { [...Array(enabled_stars())].map(() => {
