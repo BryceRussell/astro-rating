@@ -2,6 +2,18 @@
 
 An Astro component for displaying the rate of something using stars
 
+## Example:
+
+![rating](https://raw.githubusercontent.com/BryceRussell/astro-rating/main/rating.PNG "Rating")
+
+```<Rating total="90876" rate="2" max="5" />```
+
+## How to use?
+
+- Move the two star images to your public/imgs directory
+
+- Import component and set props
+
 ## Props
 
 __total__:
@@ -23,11 +35,5 @@ __enabled_src__:
 __disabled_src__:
 
   - Path to disabled star image source
-
-### Example:
-
-![rating](/rating.png?raw=true "Rating")
-
-`<Rating total="90876" rate="2" max="5" />`
 
 
