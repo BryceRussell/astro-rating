@@ -2,13 +2,23 @@
 import { Rating } from "../index.mjs";
 ---
 <style lang="scss">
-	section {
+	main {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
 
-		h2 {
-			margin: 0;
+		section {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 0.5rem;
+
+			h2 {
+				margin: 0;
+			}
 		}
 	}
 </style>
@@ -20,7 +30,12 @@ import { Rating } from "../index.mjs";
 		<title>Astro Rating</title>
 	</head>
 	<body>
-		<section>
+		<main>
+			<section>
+				<h2>1 Star</h2>
+				<Rating total="99999" rate="1" max="1" />
+				<Rating total="99999" rate="0" max="1" />
+			</section>
 			<section>
 				<h2>5 stars</h2>
 				<Rating total="90876" rate="5" max="5" />
@@ -31,16 +46,25 @@ import { Rating } from "../index.mjs";
 			</section>
 			<section>				
 				<h2>10 stars</h2>
-				<Rating total="34566" rate="10" max="10" />
-				<Rating total="2139" rate="8" max="10" />
-				<Rating total="872" rate="5" max="10" />
-				<Rating total="17" rate="3" max="10" />
-				<Rating total="3" rate="1" max="10" />
+				<Rating total="34566" rate="10" max={10} />
+				<Rating total={2139} rate={8} max="10" />
+				<Rating total="872" rate="5" max={10} />
+				<Rating total={17} rate="3" max="10" />
+				<Rating total="3" rate={1} max={10} />
 			</section>
 			<section>
 				<h2>12 stars</h2>
 				<Rating total="78254" rate="7" max="12" />
 			</section>
-		</section>
+
+			<section>
+				<h2>5 stars</h2>
+				<Rating total={90876} rate={5} max={5} />
+				<Rating total={8634} rate={4} max="5" />
+				<Rating total={178} rate="3" max="5" />
+				<Rating total="39" rate="2" max="5" />
+				<Rating total={8} rate="1" max={5} />
+			</section>
+		</main>
 	</body>
 </html>

@@ -1,32 +1,29 @@
 ---
 import default_enabled_src from './imgs/star.webp';
 import default_disabled_src from './imgs/star_disabled.webp';
-import './imgs/star_disabled.webp';
-const { total, max, rate, enabled_src, disabled_src } = Astro.props;
-// const default_enabled_src = './imgs/star.webp';
-// const default_disabled_src = './imgs/star_disabled.webp';
 
-const total_ratings = addCommas(total)
+export interface Props {
+    total?: number|string;
+    max?: number|string;
+    rate?: number|string;
+    enabled_src?: string;
+    disabled_src?: string;
+}
 
-const max_stars = () => {
-    if (typeof max == 'undefined') return 5
-    if (typeof max == 'string') return parseInt(max)
-    if (typeof max == 'number') return max
-};
+const { 
+    total,
+    max = 5,
+    rate = 0,
+    enabled_src,
+    disabled_src
+} = Astro.props as Props;
 
-const enabled_stars = () => {
-    if (typeof rate == 'undefined') return 0
-    if (typeof rate == 'string') return parseInt(rate)
-    if (typeof rate == 'number') return rate
-};
+const disabled = +max - +rate;
 
-const disabled_stars = max_stars() - enabled_stars();
-
-//Utility
 function addCommas(num) {
     if (typeof num == 'number') return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     if (typeof num == 'string') return num.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    return false
+    return "0"
 }
 ---
 
@@ -53,17 +50,16 @@ function addCommas(num) {
 </style>
 
 <div class="rating-container">
-    { total_ratings &&
-        <span class="total-ratings">({ total_ratings })</span>
+    { total &&
+        <span class="total-ratings">({addCommas(total)})</span>
     }
     <div class="rating-stars">
-        { [...Array(enabled_stars())].map(() => {
+        { [...Array(+rate)].map(() => {
             if (enabled_src) return <img src={enabled_src}>
             else return <img src={default_enabled_src}>
         })}
-
-        {   disabled_stars != 0 &&
-            [...Array(disabled_stars)].map(() => {
+        {   disabled != 0 &&
+            [...Array(disabled)].map(() => {
                 if (disabled_src) return <img src={disabled_src}>
                 else return <img src={default_disabled_src}>
             })
