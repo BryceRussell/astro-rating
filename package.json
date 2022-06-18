@@ -11,6 +11,7 @@
     "url": "https://github.com/BryceRussell/astro-rating"
   },
   "files": [
+    "src/imgs",
     "src/index.mjs",
     "src/Rating.astro"
   ],

@@ -8,7 +8,6 @@ dist/
 node_modules/
 
 #configs
-.npmrc
 astro.config.mjs
 tsconfig.json
 
