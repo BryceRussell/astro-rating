@@ -50,7 +50,7 @@ function addCommas(num) {
 </style>
 
 <div class="rating-container">
-    { total &&
+    { typeof total != 'undefined' &&
         <span class="total-ratings">({addCommas(total)})</span>
     }
     <div class="rating-stars">
