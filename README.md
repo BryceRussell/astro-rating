@@ -1,39 +1,43 @@
-# Astro-Rating
+# Astro Starter Kit: Minimal
 
-An Astro component for displaying the rate of something using stars
+```
+npm init astro -- --template minimal
+```
 
-## Example:
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
 
-![rating](https://raw.githubusercontent.com/BryceRussell/astro-rating/main/rating.PNG "Rating")
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```<Rating total="90876" rate="2" max="5" />```
+## 🚀 Project Structure
 
-## How to use?
+Inside of your Astro project, you'll see the following folders and files:
 
-- Move the two star images to your public/imgs directory
+```
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-- Import component and set props
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## Props
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-__total__:
+Any static assets, like images, can be placed in the `public/` directory.
 
-  - The total number of ratings Ex: 578, 6792, 14, etc
+## 🧞 Commands
 
-__max__:
+All commands are run from the root of the project, from a terminal:
 
-  - Rate scale maximum Ex 5, 10 etc
+| Command           | Action                                       |
+|:----------------  |:-------------------------------------------- |
+| `npm install`     | Installs dependencies                        |
+| `npm run dev`     | Starts local dev server at `localhost:3000`  |
+| `npm run build`   | Build your production site to `./dist/`      |
+| `npm run preview` | Preview your build locally, before deploying |
 
-__rate__:
+## 👀 Want to learn more?
 
-  - Rate, a number between 0 and the max rate scale. Ex: 2, 4, 7, 8, etc
-
-__enabled_src__:
-
-  - Path to enabled star image source
-
-__disabled_src__:
-
-  - Path to disabled star image source
-
-
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

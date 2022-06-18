@@ -1,0 +1,32 @@
+{
+  "name": "astro-rating",
+  "version": "0.1.0",
+  "description": "Display the rating of a product, comment, etc using stars",
+  "homepage": "https://github.com/BryceRussell/astro-rating#readme",
+  "bugs": {
+    "url": "https://github.com/BryceRussell/astro-rating/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BryceRussell/astro-rating"
+  },
+  "files": [
+    "src/index.mjs",
+    "src/Rating.astro"
+  ],
+  "exports": "./src/index.mjs",
+  "keywords": [
+    "astro-component"
+  ],
+  "author": "Bryce Russell",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "^1.0.0-beta.44"
+  }
+}

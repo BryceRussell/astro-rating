@@ -1,7 +1,10 @@
 ---
+import default_enabled_src from './imgs/star.webp';
+import default_disabled_src from './imgs/star_disabled.webp';
+import './imgs/star_disabled.webp';
 const { total, max, rate, enabled_src, disabled_src } = Astro.props;
-const default_enabled_src = '/imgs/star.webp';
-const default_disabled_src = '/imgs/star_disabled.webp';
+// const default_enabled_src = './imgs/star.webp';
+// const default_disabled_src = './imgs/star_disabled.webp';
 
 const total_ratings = addCommas(total)
 
