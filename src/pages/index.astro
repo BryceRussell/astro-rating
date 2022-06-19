@@ -61,6 +61,8 @@ import { Rating } from "../index.mjs";
 				<h2>Test/Debug</h2>
 				<h3>No props test</h3>
 				<Rating />
+				<h3>No total test</h3>
+				<Rating rate="3" max="5" />
 				<h3>1 Star test</h3>
 				<Rating total="99999" rate="1" max="1" />
 				<Rating total="99999" rate="0" max="1" />
@@ -69,6 +71,7 @@ import { Rating } from "../index.mjs";
 				<Rating total="99,999" rate="3" max="5" />
 				<Rating total="99,99,9" rate="3" max="5" />
 				<Rating total="9,9,9,9,9" rate="3" max="5" />
+				<Rating total="999,999,999" rate="3" max="5" />
 				<h3>Numbers and strings test</h3>
 				<Rating total={99999} rate={10} max={10} />
 				<Rating total={9999} rate={8} max="10" />
