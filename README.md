@@ -54,4 +54,3 @@ disabled_src|string|disabled star image filepath inside the public directory Ex:
 - Ability to use half numbers in the rate prop Ex: 4.5, 7.5, etc
 - Class prop for class based styling
 - Add more star options
-- __VS Code Bug__: Throws a ts(2307) module not found error when importing but dev server and build run fine
