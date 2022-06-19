@@ -17,7 +17,13 @@ import { Rating } from 'astro-rating';
 <Rating total="90876" rate="5" max="5" />
 
 //Define your own star images, must be inside your public directory
-<Rating total="90876" rate="5" max="5" enabled_src="imgs/star.webp" disabled_src="imgs/star_disabled.webp" />
+<Rating 
+  total="90876"
+  rate="5"
+  max="5"
+  enabled_src="imgs/star.webp"
+  disabled_src="imgs/star_disabled.webp"
+/>
 ```
 
 ## Props
@@ -46,6 +52,6 @@ disabled_src|string|disabled star image filepath inside the public directory Ex:
 
 ## To-do
 - __Bug__: Throws a ts(2307) module not found error when importing even though it works on dev server and build????
-- Ability to use half points Ex: 4.5/5, 7.5/10, etc
+- Ability to use half numbers in the rate prop Ex: 4.5, 7.5, etc
 - Class prop for class based styling
 - Add more star options
