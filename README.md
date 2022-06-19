@@ -8,7 +8,7 @@ __Install package__:
 
 ```npm i astro-rating```
 
-__Inside an .astro component/layout/page__:
+__Inside a .astro component/layout/page__:
 
 ```
 import { Rating } from 'astro-rating';
@@ -16,7 +16,7 @@ import { Rating } from 'astro-rating';
 //Create a rating
 <Rating total="90876" rate="5" max="5" />
 
-//Define your own star images, must be inside your ./public directory
+//Define your own star images, must be inside your public directory
 <Rating total="90876" rate="5" max="5" enabled_src="imgs/star.webp" disabled_src="imgs/star_disabled.webp" />
 ```
 
@@ -31,8 +31,6 @@ enabled_src|string|enabled star image filepath inside the public directory Ex: i
 disabled_src|string|disabled star image filepath inside the public directory Ex: imgs/star_disabled.webp
 
 ## Examples
-
-NOTE: uses ```<img>``` tags to display stars
 
 ![Rating Component Example](https://raw.githubusercontent.com/BryceRussell/astro-rating/main/example.JPG)
 
