@@ -1,6 +1,6 @@
 {
   "name": "astro-rating",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Display the rating of a product, comment, etc using stars",
   "homepage": "https://github.com/BryceRussell/astro-rating#readme",
   "bugs": {
