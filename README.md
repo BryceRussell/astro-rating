@@ -80,6 +80,8 @@ const material_design = {
 
 ### Custom Styling
 
+Use [tailwindcss](https://tailwindcss.com) and the provided class props to customize the look of your rating
+
 ![Reversed Column](https://raw.githubusercontent.com/BryceRussell/astro-rating/main/examples/col-reversed.PNG)
 
 ```
