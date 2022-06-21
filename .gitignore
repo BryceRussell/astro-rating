@@ -8,8 +8,10 @@ dist/
 node_modules/
 
 #configs
-astro.config.mjs
-tsconfig.json
+**.config.mjs
+**.config.cjs
+**.config.js
+**.json
 
 # logs
 npm-debug.log*

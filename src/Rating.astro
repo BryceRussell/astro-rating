@@ -1,69 +1,52 @@
 ---
-import default_enabled_src from './imgs/star.svg';
-import default_disabled_src from './imgs/star_disabled.svg';
+import { Icon } from 'astro-icon';
 
 export interface Props {
+    rate: number|string;
+    max: number|string;
     total?: number|string;
-    max?: number|string;
-    rate?: number|string;
-    enabled_src?: string;
-    disabled_src?: string;
+    starFull?: string;
+    starHalf?: string;
+    starDisabled?: string;
+    containerClass?: string;
+    totalClass?: string;
+    starsClass?: string;
+    iconClass?: string;
 }
 
 const { 
     total,
-    max = 5,
-    rate = 0,
-    enabled_src,
-    disabled_src
+    max=5,
+    rate=0,
+    starFull="star-full",
+    starHalf="star-half",
+    starDisabled="star-disabled",
+    containerClass="flex items-center gap-1",
+    totalClass="text-xs text-gray-300",
+    starsClass="flex items-center",
+    iconClass="h-4 w-4"
 } = Astro.props as Props;
 
-const disabled = +max - +rate;
+const fullStars = Math.floor(+rate);
+const halfStars = +rate - fullStars
+const disabledStars = Math.floor(+max - +rate);
 
 function addCommas(num) {
     if (typeof num == 'number') return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    if (typeof num == 'string') return num.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    if (typeof num == 'string') return num.replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     return "0"
 }
 ---
 
-<style lang="scss">
-    .rating-container {
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        align-items: flex-end;
-        gap: 0.25rem;
-
-        .total-ratings {
-            font-size: 0.75rem;
-            color: #ccc;
-        }
-        .rating-stars {
-            display: flex;
-            align-items: flex-end;
-            
-            img {
-                height: 14px;
-                width: auto;
-            }
-        }
-    }
-</style>
-
-<div class="rating-container">
-    { typeof total != 'undefined' &&
-        <span class="total-ratings">({addCommas(total)})</span>
-    }
-    <div class="rating-stars">
-        { [...Array(+rate)].map(() => {
-            if (enabled_src) return <img src={enabled_src}>
-            else return <img src={default_enabled_src}>
+<div class={containerClass}>
+    {total !== undefined && <span class={totalClass}>({addCommas(total)})</span>}
+    <div class={starsClass}>
+        {[...Array(fullStars)].map(() => {
+            return <div class={iconClass}><Icon name={starFull}/></div>
         })}
-        {   disabled != 0 &&
-            [...Array(disabled)].map(() => {
-                if (disabled_src) return <img src={disabled_src}>
-                else return <img src={default_disabled_src}>
-            })
-        }
+        {halfStars != 0 && <div class={iconClass}><Icon name={starHalf}/></div>}
+        {disabledStars != 0 && [...Array(disabledStars)].map(() => {
+            return <div class={iconClass}><Icon name={starDisabled}/></div>
+        })}
     </div>
 </div>
