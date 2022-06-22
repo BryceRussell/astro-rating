@@ -139,14 +139,14 @@ import { ARating } from 'astro-rating';
 const my_rating = {
   max: 5,
   rate: 2.5,
+  full: "mdi:star",
+  half: "mdi:star-half-full",
+  empty: "mdi:star-outline",
   total: {
     text: "9876",
     class: "leading-none text-xs text-gray-300",
   },
   stars: {
-    full: "mdi:star",
-    half: "mdi:star-half-full",
-    empty: "mdi:star-outline",
     class: "flex items-center"
   },
   star: {
@@ -162,11 +162,11 @@ Propname | Type | Description | Default
 ------------ | ------------- | ------------- | -------------
 rate|number\|string|0|# between 0 and max
 max|number\|string|5|max number of stars|5
+full|string|star-full|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a full star
+half|string|star-half|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a half star
+empty|string|star-empty|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a empty star
 total|object|```{class:"leading-none text-xs text-gray-300"}```|Total ratings span element
 total.text|string||Total rating span text
 stars|object|```{full: "star-full",half: "star-half",empty: "star-empty",class: "flex items-center"}```|Div with all star svgs
-stars.full|string|star-full|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a full star
-stars.half|string|star-half|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a half star
-stars.empty|string|star-empty|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a empty star
 star|object|```{class:"flex items-center gap-1"}```|Star icon svg element
 ...attrs|string|```{class:"flex items-center gap-1"}```|apply any html attribute like 'class', 'id', or 'style' to the rating container
