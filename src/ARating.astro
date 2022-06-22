@@ -23,13 +23,13 @@ export interface Props {
 const { 
     max=5,
     rate=0,
+    full="star-full",
+    half="star-half",
+    empty="star-empty",
     total={
         class: "leading-none text-xs text-gray-300"
     },
     stars={
-        full: "star-full",
-        half: "star-half",
-        empty: "star-empty",
         class: "flex items-center"
     },
     star={
@@ -59,11 +59,11 @@ function addCommas(num) {
     {total !== undefined && <span {...{...total}} set:text={`(${addCommas(total.text)})`}></span>}
     <div {...{...stars}}>
         {[...Array(fullStars)].map(() => {
-            return <Icon name={stars.full} {...star}/>
+            return <Icon name={full} {...star}/>
         })}
-        {halfStars != 0 && <Icon name={stars.half} {...star}/>}
+        {halfStars != 0 && <Icon name={half} {...star}/>}
         {emptyStars != 0 && [...Array(emptyStars)].map(() => {
-            return <Icon name={stars.empty} {...star}/>
+            return <Icon name={empty} {...star}/>
         })}
     </div>
 </div>
