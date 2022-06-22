@@ -42,12 +42,12 @@ import { Rating } from 'astro-rating';
 
 astro-rating uses [astro-icon](https://github.com/natemoo-re/astro-icon#readme) to deliver svgs for displaying stars. If you want to use different star icons [read about](https://github.com/natemoo-re/astro-icon#icon-packs) the Icon name property and how it uses [Iconify](https://iconify.design) to fetch any popular icon from a bunch of the most popular icon packs.
 
-#### Font Awesome
+#### Phosphor
 
-![Font Awesome](https://raw.githubusercontent.com/BryceRussell/astro-rating/main/examples/font-awesome.PNG)
+![Phosphor](https://raw.githubusercontent.com/BryceRussell/astro-rating/main/examples/phosphor.PNG)
 
 ```
-const font_awesome = {
+const phosphor = {
   rate: "8.5",
   max: "10",
   total: "32769",
@@ -57,7 +57,7 @@ const font_awesome = {
   starClass: "text-yellow-500 w-4 h-4"
 }
 
-<Rating {...font_awesome}/>
+<Rating {...phosphor}/>
 ```
 
 #### Material Design Icons
