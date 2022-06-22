@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+    rate?: number|string;
+    max?: number|string;
+    total?: {
+        text?: string;
+        [attrs: string]: string;
+    };
+    stars?: {
+        full?: string;
+        half?: string;
+        empty?: string;
+        [attrs: string]: string;
+    };
+    star?: {
+        [attrs: string]: string;
+    };
+}
+
+const { 
+    max=5,
+    rate=0,
+    total={
+        class: "leading-none text-xs text-gray-300"
+    },
+    stars={
+        full: "star-full",
+        half: "star-half",
+        empty: "star-empty",
+        class: "flex items-center"
+    },
+    star={
+        class: "h-4 w-4"
+    },
+    ...attrs
+} = Astro.props as Props;
+
+const default_attrs = {
+    class: "flex items-center gap-1"
+}
+
+//Star quanitity math
+const fullStars = Math.floor(+rate);
+const halfStars = +rate - fullStars
+const emptyStars = Math.floor(+max - +rate);
+
+//Utility
+function addCommas(num) {
+    if (typeof num == 'number') return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    if (typeof num == 'string') return num.replace(/[^\d]/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    return "0"
+}
+---
+
+<div {...{...default_attrs, ...attrs}}>
+    {total !== undefined && <span {...{...total}} set:text={`(${addCommas(total)})`}></span>}
+    <div {...{...stars}}>
+        {[...Array(fullStars)].map(() => {
+            return <Icon name={stars.full} {...star}/>
+        })}
+        {halfStars != 0 && <Icon name={stars.half} {...star}/>}
+        {emptyStars != 0 && [...Array(emptyStars)].map(() => {
+            return <Icon name={stars.empty} {...star}/>
+        })}
+    </div>
+</div>
