@@ -12,6 +12,7 @@ export interface Props {
     totalClass?: string;
     starsClass?: string;
     starClass?: string;
+    [attrs: string]: string;
 }
 
 const { 
@@ -43,7 +44,7 @@ function addCommas(num) {
 ---
 
 <div {...{...default_attrs, ...attrs}}>
-    {total !== undefined && <span class={totalClass}>({addCommas(total)})</span>}
+    {total !== undefined && <span class={totalClass} set:text={`(${addCommas(total)})`}></span>}
     <div class={starsClass}>
         {[...Array(fullStars)].map(() => {
             return <Icon name={full} {...{class: starClass}}/>

@@ -23,7 +23,8 @@
   "files": [
     "src/icons",
     "src/index.mjs",
-    "src/Rating.astro"
+    "src/Rating.astro",
+    "src/ARating.astro"
   ],
   "scripts": {
     "dev": "astro dev",
