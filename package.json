@@ -2,7 +2,7 @@
   "author": "Bryce Russell",
   "license": "MIT",
   "name": "astro-rating",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "description": "Astro component that uses stars to display the rating of a product, post, comment, etc.",
   "homepage": "https://github.com/BryceRussell/astro-rating#readme",
   "repository": {
@@ -23,7 +23,8 @@
   "files": [
     "src/icons",
     "src/index.mjs",
-    "src/Rating.astro"
+    "src/Rating.astro",
+    "src/ARating.astro"
   ],
   "scripts": {
     "dev": "astro dev",

@@ -5,31 +5,36 @@ export interface Props {
     rate?: number|string;
     max?: number|string;
     total?: number|string;
-    starFull?: string;
-    starHalf?: string;
-    starDisabled?: string;
-    containerClass?: string;
+    full?: string;
+    half?: string;
+    empty?: string;
+    class?: string;
     totalClass?: string;
     starsClass?: string;
-    iconClass?: string;
+    starClass?: string;
+    [attrs: string]: string;
 }
 
 const { 
-    total,
     max=5,
     rate=0,
-    starFull="star-full",
-    starHalf="star-half",
-    starDisabled="star-disabled",
-    containerClass="flex items-center gap-1",
+    total,
+    full="star-full",
+    half="star-half",
+    empty="star-empty",
     totalClass="leading-none text-xs text-gray-300",
     starsClass="flex items-center",
-    iconClass="h-4 w-4"
+    starClass="h-4 w-4",
+    ...attrs
 } = Astro.props as Props;
+
+const default_attrs = {
+    class: "flex items-center gap-1"
+};
 
 const fullStars = Math.floor(+rate);
 const halfStars = +rate - fullStars
-const disabledStars = Math.floor(+max - +rate);
+const emptyStars = Math.floor(+max - +rate);
 
 function addCommas(num) {
     if (typeof num == 'number') return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -38,15 +43,15 @@ function addCommas(num) {
 }
 ---
 
-<div class={containerClass}>
-    {total !== undefined && <span class={totalClass}>({addCommas(total)})</span>}
+<div {...{...default_attrs, ...attrs}}>
+    {total !== undefined && <span class={totalClass} set:text={`(${addCommas(total)})`}></span>}
     <div class={starsClass}>
         {[...Array(fullStars)].map(() => {
-            return <div class={iconClass}><Icon name={starFull}/></div>
+            return <Icon name={full} {...{class: starClass}}/>
         })}
-        {halfStars != 0 && <div class={iconClass}><Icon name={starHalf}/></div>}
-        {disabledStars != 0 && [...Array(disabledStars)].map(() => {
-            return <div class={iconClass}><Icon name={starDisabled}/></div>
+        {halfStars != 0 && <Icon name={half} {...{class: starClass}}/>}
+        {emptyStars != 0 && [...Array(emptyStars)].map(() => {
+            return <Icon name={empty} {...{class: starClass}}/>
         })}
     </div>
 </div>
