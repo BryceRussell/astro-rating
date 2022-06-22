@@ -166,7 +166,7 @@ full|string|star-full|[astro-icon](https://github.com/natemoo-re/astro-icon#read
 half|string|star-half|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a half star
 empty|string|star-empty|[astro-icon](https://github.com/natemoo-re/astro-icon#readme) Icon name prop representing a empty star
 total|object|```{class:"leading-none text-xs text-gray-300"}```|Total ratings span element
-total.text|string||Total rating span text
+total.text|string\|number||Total rating span text
 stars|object|```{full: "star-full",half: "star-half",empty: "star-empty",class: "flex items-center"}```|Div with all star svgs
 star|object|```{class:"flex items-center gap-1"}```|Star icon svg element
 ...attrs|string|```{class:"flex items-center gap-1"}```|apply any html attribute like 'class', 'id', or 'style' to the rating container
