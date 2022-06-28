@@ -1,14 +1,10 @@
-# Astro Rating :star: :star: :star: :star: :star:
+#  Astro Rating :star: :star: :star: :star: :star: [Deprecated]
 
-Astro component that uses stars to display the rating of a product, post, comment, etc.
+I remade this component and added it to my component library to keeps my components organized
 
-Uses [tailwindcss](https://tailwindcss.com) for custom class based styling and [astro-icon](https://github.com/natemoo-re/astro-icon) to customize the star icons
+https://github.com/BryceRussell/astro-bryceguy/tree/master/packages/rating
 
 ## How to use
-
-__Install package__:
-
-```npm i astro-rating```
 
 __Inside a .astro component/layout/page__:
 
@@ -22,6 +18,8 @@ import { Rating } from 'astro-rating';
 ```
 
 ## Examples
+
+These examples use Tailwincss for easy styling
 
 ### Default
 
